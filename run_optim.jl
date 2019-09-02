@@ -25,20 +25,7 @@ tspan = (0.3,9.5)
 Param = DataDict["Parameter_Ensemble"]
 
 P_opt = zeros(10,10)
-#
-# time = zeros(93,100)
-# sol_bio = zeros(93,100)
-# sol_glc = zeros(93,100)
-# sol_lac = zeros(93,100)
-# sol_ser = zeros(93,100)
-# sol_asn = zeros(93,100)
-# sol_gln = zeros(93,100)
-# sol_glu = zeros(93,100)
-# sol_ala = zeros(93,100)
-# sol_asp = zeros(93,100)
-# sol_gly = zeros(93,100)
-# sol_nh3 = zeros(93,100)
-#
+
 for i = 1:10
     P = Param[:,i]
     cost(P) = Objective(P)
@@ -47,139 +34,7 @@ for i = 1:10
     P_opt[:,i] = P_new
     # @show P_opt
 end
-    # prob = ODEProblem(odefunc,x0,tspan,P_new)
-#     sol = solve(prob, saveat=0.1)
-#     time[:,i] = sol.t
-#     sol_bio[:,i] = sol[14,:]
-#     sol_glc[:,i] = sol[4,:]
-#     sol_lac[:,i] = sol[5,:]
-#     sol_ser[:,i] = sol[6,:]
-#     sol_asn[:,i] = sol[7,:]
-#     sol_gln[:,i] = sol[8,:]
-#     sol_glu[:,i] = sol[9,:]
-#     sol_ala[:,i] = sol[10,:]
-#     sol_asp[:,i] = sol[11,:]
-#     sol_gly[:,i] = sol[12,:]
-#     sol_nh3[:,i] = sol[13,:]
-# end
-#
-# writedlm( "Solution_Ensemble/biomass.csv",  sol_bio, ',')
-# writedlm( "Solution_Ensemble/glucose.csv",  sol_glc, ',')
-# writedlm( "Solution_Ensemble/lactate.csv",  sol_lac, ',')
-# writedlm( "Solution_Ensemble/serine.csv",  sol_ser, ',')
-# writedlm( "Solution_Ensemble/asparagine.csv",  sol_asn, ',')
-# writedlm( "Solution_Ensemble/glutamine.csv",  sol_gln, ',')
-# writedlm( "Solution_Ensemble/glutamate.csv",  sol_glu, ',')
-# writedlm( "Solution_Ensemble/alanine.csv",  sol_ala, ',')
-# writedlm( "Solution_Ensemble/asparate.csv",  sol_asp, ',')
-# writedlm( "Solution_Ensemble/glycine.csv",  sol_gly, ',')
-# writedlm( "Solution_Ensemble/nh3.csv",  sol_nh3, ',')
-# P_opt = zeros(9,100)
 
-# for i = 1:100
-# IC = IC_Ensemble[:,i]
-
-# cost(P) = Objective(P)
-# res = optimize(cost,P,NelderMead())
-# P_new = Optim.minimizer(res)
-
-# P_opt[:,i] = P_new
-
-# prob = ODEProblem(odefunc,x0,tspan,P_new)
-# sol = solve(prob)
-
-# enz1 = sol[1,:];
-# enz2 = sol[2,:];
-# enz3 = sol[3,:];
-# xglc = sol[4,:];
-# xlac = sol[5,:];
-# xser = sol[6,:];
-# xasn = sol[7,:];
-# xgln = sol[8,:];
-# xglu = sol[9,:];
-# xala = sol[10,:];
-# xasp = sol[11,:];
-# xgly = sol[12,:];
-# xnh3 = sol[13,:];
-# xbio = sol[14,:];
-#
-# t = sol.t;
-#
-# using PyPlot
-# figure(1)
-# plot(t,xbio,color="black")
-# scatter(tBio,Bio,color="black")
-# #
-# figure(2)
-# plot(t,xglc,color="black")
-# scatter(tGlc,Glc,color="black")
-# # #
-# figure(3)
-# plot(t,xlac,color="black")
-# scatter(tLac,Lac,color="black")
-# # #
-# figure(4)
-# plot(t,xser,color="black")
-# scatter(tSer,Ser,color="black")
-# #
-# figure(5)
-# plot(t,xasn,color="black")
-# scatter(tAsn,Asn,color="black")
-# #
-# figure(6)
-# plot(t,xgln,color="black")
-# scatter(tGln,Gln,color="black")
-# # #
-# figure(7)
-# plot(t,xglu,color="black")
-# scatter(tGlu,Glu,color="black")
-# #
-# figure(8)
-# plot(t,xala,color="black")
-# scatter(tAla,Ala,color="black")
-# # #
-# figure(9)
-# plot(t,xasp,color="black")
-# scatter(tAsp,Asp,color="black")
-# # #
-# figure(10)
-# plot(t,xgly,color="black")
-# scatter(tGly,Gly,color="black")
-# # #
-# figure(11)
-# plot(t,xnh3,color="black")
-# scatter(tnh3,nh3,color="black")
-#
-# figure(12)
-# plot(t,enz1,color="black")
-# plot(t,enz2,color="orange")
-# plot(t,enz3,color="green")
-
-
-
-
-
-
-
-
-
-
-# include("Dynamic_Cybernetic.jl")
-# # # #
-# # # #DefineTime
-# tStart = 0.3;
-# tStop = 9.5;
-# tStep = 0.1;
-# # # # # tSim = collect(tStart:tStep:tStop)
-# # # #
-# DataDict = Dynamic_Cybernetic(tStart,tStep,tStop)
-# x0 = DataDict["InitialConditions"]
-# Z = DataDict["ModeMatrix"]
-# (num_reations,num_modes) = size(Z)
-# S = DataDict["Stoich"]
-# tspan = (0.3,9.5)
-# Param = DataDict["Parameter_Ensemble"]
-# # #
 time = zeros(93,10)
 sol_bio = zeros(93,10)
 sol_glc = zeros(93,10)
@@ -210,18 +65,7 @@ for i = 1:10
     sol_gly[:,i] = sol[12,:]
     sol_nh3[:,i] = sol[13,:]
 end
-#
-# # writedlm( "Solution_Ensemble/biomass.csv",  sol_bio, ',')
-# # writedlm( "Solution_Ensemble/glucose.csv",  sol_glc, ',')
-# # writedlm( "Solution_Ensemble/lactate.csv",  sol_lac, ',')_
-# # writedlm( "Solution_Ensemble/serine.csv",  sol_ser, ',')
-# # writedlm( "Solution_Ensemble/asparagine.csv",  sol_asn, ',')
-# # writedlm( "Solution_Ensemble/glutamine.csv",  sol_gln, ',')
-# # writedlm( "Solution_Ensemble/glutamate.csv",  sol_glu, ',')
-# # writedlm( "Solution_Ensemble/alanine.csv",  sol_ala, ',')
-# # writedlm( "Solution_Ensemble/asparate.csv",  sol_asp, ',')
-# # writedlm( "Solution_Ensemble/glycine.csv",  sol_gly, ',')
-# # writedlm( "Solution_Ensemble/nh3.csv",  sol_nh3, ',')
+
 #
 # # Lets calculate the mean of the solution space obtained
 bio_mean = mean(sol_bio',dims=1)
