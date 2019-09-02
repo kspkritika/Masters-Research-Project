@@ -111,16 +111,16 @@ function odefunc(dxdt,x,P,t)
     dxdt[1] = alpha .+ (rE[1]*u[1]) .- (beta1+mu)*x[1]
     dxdt[2] = alpha .+ (rE[2]*u[2]) .- (beta2+mu)*x[2]
     dxdt[3] = alpha .+ (rE[3]*u[3]) .- (beta3+mu)*x[3]
-    dxdt[4] =  D*(s_o - x[4]) .+ S[1,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[5] =  D*(s_o - x[5]) .+ S[2,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[6] =  D*(s_o - x[6]) .+ S[3,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[7] =  D*(s_o - x[7]) .+ S[4,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[8] =  D*(s_o - x[8]) .+ S[5,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[9] =  D*(s_o - x[9]) .+ S[6,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[10] =  D*(s_o - x[10]) .+ S[7,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[11] =  D*(s_o - x[11]) .+ S[8,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[12] =  D*(s_o - x[12]) .+ S[9,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
-    dxdt[13] =  D*(s_o - x[13]) .+ S[10,:]'*Z*Reaction_rate*M_bio  # 0.05555*s_o .-
+    dxdt[4] =  D*(s_o - x[4]) .+ S[1,:]'*Z*Reaction_rate*M_bio  
+    dxdt[5] =  D*(s_o - x[5]) .+ S[2,:]'*Z*Reaction_rate*M_bio  
+    dxdt[6] =  D*(s_o - x[6]) .+ S[3,:]'*Z*Reaction_rate*M_bio  
+    dxdt[7] =  D*(s_o - x[7]) .+ S[4,:]'*Z*Reaction_rate*M_bio  
+    dxdt[8] =  D*(s_o - x[8]) .+ S[5,:]'*Z*Reaction_rate*M_bio  
+    dxdt[9] =  D*(s_o - x[9]) .+ S[6,:]'*Z*Reaction_rate*M_bio  
+    dxdt[10] =  D*(s_o - x[10]) .+ S[7,:]'*Z*Reaction_rate*M_bio  
+    dxdt[11] =  D*(s_o - x[11]) .+ S[8,:]'*Z*Reaction_rate*M_bio  
+    dxdt[12] =  D*(s_o - x[12]) .+ S[9,:]'*Z*Reaction_rate*M_bio  
+    dxdt[13] =  D*(s_o - x[13]) .+ S[10,:]'*Z*Reaction_rate*M_bio  
     dxdt[14] = (mu - D)*M_bio
     # dxdt
     return dxdt
