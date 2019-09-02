@@ -3,16 +3,16 @@ using DelimitedFiles
 function Dynamic_Cybernetic(tStart,tStop,tStep)
 
     Parameters = [
-    1;       #4.3;  # 1 ke :8
-    0.05*5;  # 2 beta 2.772:1
-    0.528; # 3 kmax 1 0.085
-    0.288; # 4 kmax 2 0.075
-    0.72; # 5 kmax 3 0.09
-    10; # 6 ke2
-    30; # 7 ke3
-    0.05*5; # 8 beta2
-    0.05*5; # 9 BETA3
-    9.5;                 # 10 s_o feed substrate
+    1;       
+    0.05*5;  
+    0.528; 
+    0.288; 
+    0.72; 
+    10;
+    30;
+    0.05*5;
+    0.05*5; 
+    9.5;                 
     ]
 
     Param_Ensemble = zeros(10,10)
@@ -38,7 +38,7 @@ function Dynamic_Cybernetic(tStart,tStop,tStep)
 
 
     # normalisation on the basis of biomass flux
-    a = 5.3108538979; # the values after 4690 are not normalized since it just becomes 1. make this correction in ecoli too
+    a = 5.3108538979; 
     b = 4.3943091593;
     c = 2.7519335312;
 
@@ -59,7 +59,7 @@ function Dynamic_Cybernetic(tStart,tStop,tStep)
     stm_matrix = float(readdlm("Data/Network.csv",','));
     S_idx = zeros(10,546)
     S_idx[1,:] = stm_matrix[293,2649:3194]#glc
-    S_idx[2,:] = stm_matrix[320,2649:3194]  #*-1 #lac is produced :please fix this after fixing the modes. shouldn't require the negative sign
+    S_idx[2,:] = stm_matrix[320,2649:3194]  #lac
     S_idx[3,:] = stm_matrix[199,2649:3194] # ser
     S_idx[4,:] = stm_matrix[193,2649:3194] # asparagine
     S_idx[5,:] = stm_matrix[197,2649:3194] # glutamine
