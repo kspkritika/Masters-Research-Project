@@ -53,6 +53,24 @@ function Dynamic_Cybernetic(tStart,tStop,tStep)
     for j=1:546
         Z[j,3] = Z[j,3]/c
     end
+    
+    #Initial Conditions for 3 modes
+    x0 = [
+    0.8; # e1
+    0.8; # e2
+    0.8; # e3
+    70.0410228873; #1 glc
+    11.5482629792; #2 lac
+    10.7144927914; # 3 serine
+    19.7833200136; # 4 asparagine
+    3.3026417615; # 5 glutamine
+    0.8328368955; # 6 glutamate
+    0.8250474968; # 7 alanine
+    2.1248193993; # 8 asparate
+    3.401370313; # 9 glycine
+    1.1260873627; # 10 nh3
+    5.7144726262; # 11 m_BIO
+    ];
 
     #=============================#
     #Load Stoichiometric Matrix
